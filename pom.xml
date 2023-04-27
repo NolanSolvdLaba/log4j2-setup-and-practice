@@ -15,7 +15,13 @@
     </properties>
     <!-- dependencies section -->
     <dependencies>
-        <!-- Log4j2 dependency -->
+        <!-- Log4j api -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.14.1</version>
+        </dependency>
+        <!-- Log4j2 core dependency -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
