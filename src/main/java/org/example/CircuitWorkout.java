@@ -34,4 +34,7 @@ public class CircuitWorkout extends Todo {
             System.out.println(exercise.getName() + " (" + exercise.getReps() + " reps, " + exercise.getDuration() + " sec, " + exercise.getBodyPart() + ")");
         }
     }
+
+    public void addExercise(Exercise exercise) {
+    }
 }

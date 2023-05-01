@@ -12,10 +12,10 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Welcome to Circuit Training!");
-
+        System.out.print("Enter the name of exercise " + i + ": ");
         for (int i = 1; i <= 2; i++) {
             // Get user input for the exercise
-            System.out.print("Enter the name of exercise " + i + ": ");
+
             String exerciseName = scanner.nextLine();
             System.out.print("Enter the number of reps: ");
             int reps = scanner.nextInt();
@@ -26,7 +26,8 @@ public class Main {
             int duration = scanner.nextInt();
 
             // Add the exercise to the circuit training
-            circuitTraining.addExercise(exerciseName, reps, bodyPart, duration);
+            Exercise exercise = new Exercise(exerciseName, reps, bodyPart, duration);
+            circuitTraining.addExercise(exercise);
         }
 
         // Start the circuit training
