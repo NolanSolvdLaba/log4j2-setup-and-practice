@@ -1,22 +1,36 @@
 package org.example;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import java.util.Scanner;
+
+//import org.apache.logging.log4j.LogManager;
+//import org.apache.logging.log4j.Logger;
 
 public class Main {
-    private static final Logger logger = LogManager.getLogger(Main.class);
 
     public static void main(String[] args) {
-        TodoList todoList = new TodoList();
+        CircuitWorkout circuitTraining = new CircuitWorkout("Tuesday's workout");
+        Scanner scanner = new Scanner(System.in);
 
-        logger.info("Creating new todo list...");
+        System.out.println("Welcome to Circuit Training!");
 
+        for (int i = 1; i <= 2; i++) {
+            // Get user input for the exercise
+            System.out.print("Enter the name of exercise " + i + ": ");
+            String exerciseName = scanner.nextLine();
+            System.out.print("Enter the number of reps: ");
+            int reps = scanner.nextInt();
+            System.out.print("Enter the body part targeted: ");
+            scanner.nextLine(); // consume the newline character
+            String bodyPart = scanner.nextLine();
+            System.out.print("Enter the duration (in seconds): ");
+            int duration = scanner.nextInt();
 
-        logger.info("Adding two new todos to the list...");
+            // Add the exercise to the circuit training
+            circuitTraining.addExercise(exerciseName, reps, bodyPart, duration);
+        }
 
-        todoList.printTodos();
-        logger.info("Printing todo list...");
-
-        logger.info("Finished running the to-do list application.");
+        // Start the circuit training
+        System.out.println("\nStarting Circuit Training!");
+        circuitTraining.start();
     }
 }
