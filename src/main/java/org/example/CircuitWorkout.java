@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CircuitWorkout extends Todo {
-    private List<Exercise> exercises;
+    private final List<Exercise> exercises;
 
     public CircuitWorkout(String name) {
         super(name);
@@ -37,4 +37,24 @@ public class CircuitWorkout extends Todo {
 
     public void addExercise(Exercise exercise) {
     }
+
+    public void start() throws InterruptedException {
+        System.out.println("Starting circuit training");
+        System.out.println("Get ready!");
+
+        for (Exercise exercise : exercises) {
+            System.out.println("Starting exercise: " + exercise.getName());
+            System.out.println("Reps: " + exercise.getReps());
+            System.out.println("Body part targeted: " + exercise.getBodyPart());
+            System.out.println("Duration (in seconds): " + exercise.getDuration());
+
+            Thread.sleep(exercise.getDuration() * 1000L);
+
+            System.out.println("Exercise complete.");
+            System.out.println();
+        }
+
+        System.out.println("Circuit training complete!");
+    }
+
 }

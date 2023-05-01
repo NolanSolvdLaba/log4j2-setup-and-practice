@@ -7,15 +7,15 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         CircuitWorkout circuitTraining = new CircuitWorkout("Tuesday's workout");
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Welcome to Circuit Training!");
-        System.out.print("Enter the name of exercise " + i + ": ");
-        for (int i = 1; i <= 2; i++) {
-            // Get user input for the exercise
 
+        boolean addMoreExercises = true;
+        while (addMoreExercises) {
+            System.out.print("Enter the name of exercise: ");
             String exerciseName = scanner.nextLine();
             System.out.print("Enter the number of reps: ");
             int reps = scanner.nextInt();
@@ -28,6 +28,14 @@ public class Main {
             // Add the exercise to the circuit training
             Exercise exercise = new Exercise(exerciseName, reps, bodyPart, duration);
             circuitTraining.addExercise(exercise);
+
+            System.out.print("Do you want to add more exercises? (Y/N) ");
+            String answer = scanner.nextLine().toLowerCase();
+            while (!answer.equals("y") && !answer.equals("n")) {
+                System.out.print("Invalid input. Do you want to add more exercises? (Y/N) ");
+                answer = scanner.nextLine().toLowerCase();
+            }
+            addMoreExercises = answer.equals("y");
         }
 
         // Start the circuit training
